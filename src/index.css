@@ -1,0 +1,358 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+.app-main {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  text-align: center;
+}
+
+.app-main > button {
+  align-self: center;
+  width: fit-content;
+}
+
+@media (max-width: 600px) {
+  .app-main {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input:not([type="color"]),
+select,
+textarea {
+  max-width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent-border);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+.transaction-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+  margin: 16px auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.transaction-form label {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.transaction-form input,
+.transaction-form select,
+.transaction-form textarea {
+  width: 100%;
+}
+
+.transaction-form button {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .transaction-form {
+    max-width: 100%;
+  }
+
+  .transaction-form button {
+    width: 100%;
+  }
+}
+
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.filter-section > section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-section button {
+  margin: 4px;
+}
+
+@media (max-width: 600px) {
+  .filter-section {
+    padding: 14px;
+    gap: 16px;
+  }
+}
+
+.content-section {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .content-section {
+    padding: 14px;
+    margin: 6px 0;
+    gap: 14px;
+  }
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transaction-list > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.transaction-list button {
+  margin: 4px;
+}
+
+@media (max-width: 600px) {
+  .transaction-list {
+    gap: 12px;
+  }
+
+  .transaction-list > li {
+    padding: 12px;
+  }
+
+  .transaction-list button {
+    min-width: 100px;
+  }
+}
+
+
+
+
+/*pojedinacno po kat */
+.budget-category-item {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.budget-category-item h3,
+.budget-category-item p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.budget-category-item [role="progressbar"] {
+  max-width: 480px;
+  margin: 6px 0;
+}
+
+.budget-category-item button {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .budget-category-item {
+    padding: 16px;
+    gap: 12px;
+  }
+}
